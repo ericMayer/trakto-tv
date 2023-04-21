@@ -3,19 +3,26 @@
 
   <h1 class="title">Olá, faça login em sua conta.</h1>
 
-  <form class="form">
+  <form class="form" [formGroup]="formUserCredentials">
 
     <div class="field">
       <label for="email" class="label">E-mail</label>
-      <input type="email" id="email" autocomplete="email" class="input">
+      <input type="email" id="email" autocomplete="email" class="input" formControlName="email">
     </div>
 
     <div class="field">
       <label for="senha" class="label">Senha</label>
-      <input type="password" id="senha" autocomplete="current-password" class="input password">
+      <input type="password" id="senha" autocomplete="current-password" class="input password"
+        formControlName="password">
     </div>
 
-    <button type="submit" class="sign-in">Entrar</button>
+    <button type="submit" class="sign-in" (click)="signIn()" [class.disabled]="formUserCredentials.invalid">
+      <ng-container *ngIf="isLoading; else showSignIn">
+        <mat-spinner [diameter]="15"></mat-spinner> Entrando...
+      </ng-container>
+
+      <ng-template #showSignIn>Entrar</ng-template>
+    </button>
   </form>
 
 </main>
