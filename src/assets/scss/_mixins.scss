@@ -6,6 +6,6 @@
 
 @mixin grid-center() {
   display: grid;
-  justify-content: center;
+  justify-items: center;
   align-content: center;
 }

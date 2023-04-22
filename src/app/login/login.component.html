@@ -16,7 +16,7 @@
         formControlName="password">
     </div>
 
-    <button type="submit" class="sign-in" (click)="signIn()" [class.disabled]="formUserCredentials.invalid">
+    <button type="submit" class="sign-in" (click)="signIn()" [class.disabled]="addClassDisabled()">
       <ng-container *ngIf="isLoading; else showSignIn">
         <mat-spinner [diameter]="15"></mat-spinner> Entrando...
       </ng-container>

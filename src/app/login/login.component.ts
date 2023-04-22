@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 import { AuthService } from '@shared/services/auth.service';
 import { openSnackBarAlert } from '@shared/utils/alert.utils';
@@ -17,8 +18,9 @@ export class LoginComponent {
   public isLoading: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
     private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router,
     private snackBar: MatSnackBar
   ) {
     this.createFormUserCredentials();
@@ -31,6 +33,10 @@ export class LoginComponent {
     });
   }
 
+  public addClassDisabled(): boolean {
+    return this.formUserCredentials.invalid || this.isLoading;
+  }
+
   public signIn(): void {
     if (this.formUserCredentials.valid && !this.isLoading) {
       this.isLoading = true;
@@ -39,6 +45,7 @@ export class LoginComponent {
           next: (userInfo: UserInfo) => {
             // TODO: armazenar para usar quando necessário e redirecionar para menu
             console.log(userInfo);
+            this.router.navigateByUrl('menu');
             this.isLoading = false;
           },
           error: () => {

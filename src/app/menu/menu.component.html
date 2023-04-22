@@ -1,0 +1,17 @@
+<div class="toolbar">
+  <app-toolbar></app-toolbar>
+
+  <nav class="nav">
+    <div class="modulo" *ngFor="let modulo of menu">
+      <p class="modulo-name">{{ modulo?.modulo }}</p>
+
+      <mat-divider class="divider" [style.borderColor]="modulo?.separatorColor"></mat-divider>
+      <!-- (click)="openModulo(modulo)" -->
+      <div class="card">
+        <div class="image" [style.backgroundImage]="'url('+ modulo?.backgroundImage +')'"
+          [style.backgroundColor]="modulo?.backgroundColor" [style.borderColor]="modulo?.borderColor"></div>
+      </div>
+
+    </div>
+  </nav>
+</div>

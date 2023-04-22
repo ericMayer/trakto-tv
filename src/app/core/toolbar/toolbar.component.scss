@@ -1,0 +1,51 @@
+.toolbar {
+  background: #252323;
+  width: 100%;
+  height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 65px 12px 65px;
+
+  > .image {
+    width: 143px;
+    height: 50px;
+  }
+
+  > .user-info {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    > .date {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: #e4ebfb;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    > .divider {
+      border-color: #e4ebfb;
+      opacity: 0.32;
+      width: 1px;
+      height: 24px;
+    }
+
+    > .avatar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      > .avatar-photo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

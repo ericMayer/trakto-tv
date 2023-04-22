@@ -13,16 +13,20 @@ import { UserInfo } from '@shared/interfaces/user-info.interface';
 })
 export class AuthService {
 
+  public user: UserInfo;
+
   constructor(
     private http: HttpService
   ) { }
 
   private mapUserInfo(user: any): UserInfo {
-    return {
+    this.user = {
       avatar: user?.logo?.url?.high?.url,
       name: user?.firstname,
       email: user?.email
     };
+
+    return this.user;
   }
 
   public signIn(userCredentials: UserCredentials): Observable<UserInfo> {
