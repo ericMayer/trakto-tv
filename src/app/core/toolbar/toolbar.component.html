@@ -1,0 +1,25 @@
+<div class="toolbar">
+  <img class="image" src="assets/images/trakto-edu-white.svg" alt="Logo Trakto EDU">
+
+  <div class="user-info">
+
+    <div class="date">
+      <img class="icon" src="assets/icons/calendar.svg" alt="Ícone de calendário">
+
+      <p>{{ currentDate | date : 'dd/MM/yyyy' }}</p>
+    </div>
+
+    <mat-divider class="divider" [vertical]="true"></mat-divider>
+
+    <img class="icon" src="assets/icons/notification.svg" alt="Ícone de notificações">
+
+    <mat-divider class="divider" [vertical]="true"></mat-divider>
+
+    <div class="avatar">
+      <img class="avatar-photo" [src]="user?.avatar" [alt]="'Imagem de ' + user?.name">
+
+      <img src="assets/icons/arrow.svg" alt="Ícone de seta para baixo">
+    </div>
+
+  </div>
+</div>

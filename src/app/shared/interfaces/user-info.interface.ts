@@ -2,7 +2,7 @@ export interface UserInfo {
   /**
    * Foto do perfil do usuário
    */
-  avatar: string;
+  avatar?: string;
 
   name: string;
   email: string;
