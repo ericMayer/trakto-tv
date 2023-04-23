@@ -47,7 +47,7 @@ export class LoginComponent {
           },
           error: () => {
             openSnackBarAlert(this.snackBar, {
-              message: 'Não foi possível verificar se a url da sua loja está disponível, por favor tente novamente.'
+              message: 'Verifique seu login.'
             });
             this.isLoading = false;
           }

@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { HttpService } from '@shared/services/http.service';
 import { environment } from '@environments/environment';
 import { MaterialDidatico } from '@shared/interfaces/material-didatico.interface';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -30,13 +31,16 @@ export class DesignService {
     return materialDidatico;
   }
 
-  public getDesigns(): Observable<MaterialDidatico[]> {
+  public getDesigns(useTotalPerPage: boolean = true): Observable<MaterialDidatico[]> {
+    let params: HttpParams = new HttpParams()
+      .set('order_by', 'title')
+      .set('order_orientation', 'desc');
+
+    if (useTotalPerPage)
+      params = params.set('total_per_page', 10);
+
     return this.http.get(environment.design, {
-      params: {
-        total_per_page: 10,
-        order_by: 'title',
-        order_orientation: 'desc'
-      }
+      params
     })
       .pipe(
         map((design: any) => this.mapDesigns(design))

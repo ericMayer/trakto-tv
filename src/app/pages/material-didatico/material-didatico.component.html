@@ -21,40 +21,66 @@
     </div>
 
     <div class="materiais">
-      <div class="material-info">
 
-        <div class="slide-buttons">
-          <div class="week">
-            <ng-container *ngIf="(startDate | date: 'dd/MM') !== (endDate | date : 'dd/MM'), else sameDate">
-              Semana {{ startDate | date: 'dd/MM' }} até {{ endDate | date: 'dd/MM'}}
-            </ng-container>
+      <ng-container *ngIf="designs?.length; else createDesign">
+        <div class="material-info">
 
-            <ng-template #sameDate>
-              Semana {{ startDate | date: 'dd/MM' }}
-            </ng-template>
+          <div class="slide-buttons">
+            <div class="week">
+              <ng-container *ngIf="(startDate | date: 'dd/MM') !== (endDate | date : 'dd/MM'), else sameDate">
+                Semana {{ startDate | date: 'dd/MM' }} até {{ endDate | date: 'dd/MM'}}
+              </ng-container>
+
+              <ng-template #sameDate>
+                Semana {{ startDate | date: 'dd/MM' }}
+              </ng-template>
+            </div>
+
+            <div class="buttons">
+              <img class="prev-slide" src="assets/icons/prev.svg" alt="Slide anterior" (click)="prevSlide()">
+              <img class="next-slide" src="assets/icons/next.svg" alt="Próximo slide" (click)="nextSlide()">
+            </div>
           </div>
 
-          <div class="buttons">
-            <img class="prev-slide" src="assets/icons/prev.svg" alt="Slide anterior" (click)="prevSlide()">
-            <img class="next-slide" src="assets/icons/next.svg" alt="Próximo slide" (click)="nextSlide()">
-          </div>
+          <button class="all-content" (click)="goListMaterialDidatico()">Ver todo conteúdo</button>
         </div>
 
-        <button class="all-content">Ver todo conteúdo</button>
-      </div>
+        <div class="text-information">
+          <h2 class="modulo">Material didático</h2>
+          <p class="description">Acesse suas últimas apresentações de aula.</p>
+        </div>
 
-      <div class="text-information">
-        <h2 class="modulo">Material didático</h2>
-        <p class="description">Acesse suas últimas apresentações de aula.</p>
-      </div>
+        <swiper-container class="swiper" slides-per-view="auto" space-between="32" #swiperContainer>
 
-      <swiper-container class="swiper" slides-per-view="auto" space-between="32" #swiperContainer>
+          <swiper-slide class="slide" *ngFor="let design of designs">
+            <app-card-design [design]="design"></app-card-design>
+          </swiper-slide>
 
-        <swiper-slide class="slide" *ngFor="let design of designs">
-          <app-card-design [design]="design"></app-card-design>
-        </swiper-slide>
+        </swiper-container>
+      </ng-container>
 
-      </swiper-container>
+      <ng-template #createDesign>
+        <div class="none-material" *ngIf="!isLoading">
+
+          <div class="animation">
+            <ng-lottie [options]="animationOptions"></ng-lottie>
+          </div>
+
+          <p class="info">Você ainda não possui nenhuma material didático criado 😢!. Para criar um material
+            didático clique no botão
+            abaixo.</p>
+
+          <button class="new-design" mat-raised-button (click)="openEditor()">
+            <span class="material-symbols-outlined">
+              add
+            </span>
+
+            Novo Material
+          </button>
+        </div>
+
+      </ng-template>
+
     </div>
 
   </main>
