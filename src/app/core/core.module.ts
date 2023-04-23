@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
-
-
+import { InterceptorModule } from './interceptor/interceptor.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +14,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatDividerModule
   ],
   exports: [
+    InterceptorModule,
     ToolbarComponent
   ]
 })
