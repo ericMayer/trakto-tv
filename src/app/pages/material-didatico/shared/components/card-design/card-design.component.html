@@ -1,0 +1,11 @@
+<div class="design" (click)="openPresentation(design.id)">
+  <div class="image">
+    <img class="thumbnail" [src]="design?.thumbnail" [alt]="design?.title">
+
+    <div class="slides">
+      {{ design?.slides }} Slide(s)
+    </div>
+  </div>
+
+  <p class="title">{{ design?.title }}</p>
+</div>

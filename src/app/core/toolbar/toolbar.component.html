@@ -1,24 +1,33 @@
-<div class="toolbar">
-  <img class="image" src="assets/images/trakto-edu-white.svg" alt="Logo Trakto EDU">
+<div class="toolbar" [class.light-mode]="!darkMode">
+
+  <div class="logout">
+    <img class="image" [src]="getImageToolbar('trakto-edu', true)" alt="Logo Trakto EDU">
+
+    <button class="change-modulo" *ngIf="!darkMode" (click)="goToMenu()">
+      <img src="assets/icons/logout.svg" alt="Ícone de sair">
+
+      Trocar de ambiente
+    </button>
+  </div>
 
   <div class="user-info">
 
     <div class="date">
-      <img class="icon" src="assets/icons/calendar.svg" alt="Ícone de calendário">
+      <img class="icon" [src]="getImageToolbar('calendar')" alt="Ícone de calendário">
 
-      <p>{{ currentDate | date : 'dd/MM/yyyy' }}</p>
+      <p class="current-date">{{ currentDate | date : 'dd/MM/yyyy' }}</p>
     </div>
 
     <mat-divider class="divider" [vertical]="true"></mat-divider>
 
-    <img class="icon" src="assets/icons/notification.svg" alt="Ícone de notificações">
+    <img class="icon" [src]="getImageToolbar('notification')" alt="Ícone de notificações">
 
     <mat-divider class="divider" [vertical]="true"></mat-divider>
 
     <div class="avatar">
       <img class="avatar-photo" [src]="user?.avatar" [alt]="'Imagem de ' + user?.name">
 
-      <img src="assets/icons/arrow.svg" alt="Ícone de seta para baixo">
+      <img [src]="getImageToolbar('arrow')" alt="Ícone de seta para baixo">
     </div>
 
   </div>

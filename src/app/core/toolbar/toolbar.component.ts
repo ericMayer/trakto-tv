@@ -10,6 +10,8 @@ import { AuthService } from '@shared/services/auth.service';
 })
 export class ToolbarComponent {
 
+  @Input() public darkMode: boolean = true;
+
   public user: UserInfo;
   public currentDate: Date = new Date();
 
@@ -22,7 +24,16 @@ export class ToolbarComponent {
 
   private getUser(): void {
     this.user = this.authService.user;
-    if (!this.user)
-      this.router.navigateByUrl('login');
+    if (!this.user) { }
+    // this.router.navigateByUrl('login');
+  }
+
+  public getImageToolbar(image: string, isImage?: boolean): string {
+    image = this.darkMode ? `${image}.svg` : `${image}-black.svg`;
+    return isImage ? `assets/images/${image}` : `assets/icons/${image}`;
+  }
+
+  public goToMenu(): void {
+    this.router.navigateByUrl('menu');
   }
 }
