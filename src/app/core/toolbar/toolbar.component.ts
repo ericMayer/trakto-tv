@@ -24,8 +24,8 @@ export class ToolbarComponent {
 
   private getUser(): void {
     this.user = this.authService.user;
-    if (!this.user) { }
-    // this.router.navigateByUrl('login');
+    if (!this.user)
+      this.router.navigateByUrl('login');
   }
 
   public getImageToolbar(image: string, isImage?: boolean): string {

@@ -90,7 +90,7 @@
       > .slide-buttons > .week {
         background: #e4ebfb;
         padding: 4px 8px;
-        width: 195px;
+        width: fit-content;
         height: 27px;
         color: #7183a6;
         font-family: Roboto, sans-serif;
@@ -165,6 +165,43 @@
       .slide {
         width: 310px !important;
         cursor: pointer;
+      }
+    }
+
+    > .none-material {
+      display: grid;
+      gap: 12px;
+
+      > .animation {
+        width: 100%;
+        max-height: 300px;
+      }
+
+      > .info {
+        font-family: Roboto, sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #7183a6;
+      }
+
+      > .new-design {
+        font-family: Roboto, sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: var(--light-color);
+        background-color: #048af1;
+        width: fit-content;
+        height: 48px;
+        padding: 8px;
+
+        ::ng-deep .mdc-button__label {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+        }
       }
     }
   }

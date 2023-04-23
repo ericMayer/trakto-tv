@@ -7,6 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@core/core.module';
 
+import { LottieModule } from 'ngx-lottie';
+
+export function playerFactory(): Promise<any> {
+  return import('lottie-web');
+}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +22,8 @@ import { CoreModule } from '@core/core.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    LottieModule.forRoot({ player: playerFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]

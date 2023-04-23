@@ -1,8 +1,14 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { Swiper } from 'swiper';
+
+import { AnimationOptions } from 'ngx-lottie';
 
 import { DesignService } from '@shared/services/design.service';
 import { MaterialDidatico } from '@shared/interfaces/material-didatico.interface';
-import { SwiperOptions, Swiper } from 'swiper';
+import { openSnackBarAlert } from '@shared/utils/alert.utils';
 
 @Component({
   selector: 'app-material-didatico',
@@ -16,10 +22,17 @@ export class MaterialDidaticoComponent implements OnInit {
   public startDate: Date;
   public endDate: Date;
   public designs: MaterialDidatico[];
+  public isLoading: boolean = true;
 
-  constructor(private designService: DesignService) {
-    window['desings'] = this;
-  }
+  public animationOptions: AnimationOptions = {
+    path: 'assets/animations/empty-box.json',
+  };
+
+  constructor(
+    private designService: DesignService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) { }
 
   public ngOnInit(): void {
     this.getDesigns();
@@ -32,9 +45,18 @@ export class MaterialDidaticoComponent implements OnInit {
 
   private getDesigns(): void {
     this.designService.getDesigns()
-      .subscribe((designs: MaterialDidatico[]) => {
-        this.designs = designs;
-        this.setDates();
+      .subscribe({
+        next: (designs: MaterialDidatico[]) => {
+          this.designs = designs;
+          this.isLoading = false;
+          this.setDates();
+        },
+        error: () => {
+          openSnackBarAlert(this.snackBar, {
+            message: 'Desculpe, aconteceu um erro em nossos serviços e não conseguimos exibir os resultados 😢. Tente recarregar a página ou tente novamente mais tarde.'
+          });
+          this.isLoading = false;
+        }
       });
   }
 
@@ -44,5 +66,13 @@ export class MaterialDidaticoComponent implements OnInit {
 
   public nextSlide(): void {
     (this.swiperContainer?.nativeElement?.swiper as Swiper)?.slideNext();
+  }
+
+  public goListMaterialDidatico(): void {
+    this.router.navigateByUrl('material-didatico/lista');
+  }
+
+  public openEditor(): void {
+    window.open('https://dashboard.trakto.io/app/home', '_blank');
   }
 }

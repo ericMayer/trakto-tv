@@ -2,7 +2,7 @@
   <div class="image">
     <img class="thumbnail" [src]="design?.thumbnail" [alt]="design?.title">
 
-    <div class="slides">
+    <div class="slides" *ngIf="design?.slides">
       {{ design?.slides }} Slide(s)
     </div>
   </div>

@@ -4,10 +4,12 @@ import { MatDividerModule } from '@angular/material/divider';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { InterceptorModule } from './interceptor/interceptor.module';
+import { ImageNotFoundDirective } from './directives/image-not-found.directive';
 
 @NgModule({
   declarations: [
-    ToolbarComponent
+    ToolbarComponent,
+    ImageNotFoundDirective
   ],
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { InterceptorModule } from './interceptor/interceptor.module';
   ],
   exports: [
     InterceptorModule,
-    ToolbarComponent
+    ToolbarComponent,
+    ImageNotFoundDirective
   ]
 })
 export class CoreModule { }
