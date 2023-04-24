@@ -1,11 +1,11 @@
-<div class="list-design">
+<div class="container-content">
   <app-toolbar [darkMode]="false">
   </app-toolbar>
 
   <main class="materiais">
     <div class="card">
-      <h1 class="title">Material didático</h1>
-      <p class="description">Acesse suas últimas apresentações de aula.</p>
+      <h1 class="title title-font">Material didático</h1>
+      <p class="description text-font">Acesse suas últimas apresentações de aula.</p>
 
       <div class="thumbnails">
         <app-card-design *ngFor="let design of designs" [design]="design"></app-card-design>

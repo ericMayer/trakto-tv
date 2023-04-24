@@ -24,8 +24,6 @@ export class ToolbarComponent {
 
   private getUser(): void {
     this.user = this.authService.user;
-    if (!this.user)
-      this.router.navigateByUrl('login');
   }
 
   public getImageToolbar(image: string, isImage?: boolean): string {
@@ -35,5 +33,9 @@ export class ToolbarComponent {
 
   public goToMenu(): void {
     this.router.navigateByUrl('menu');
+  }
+
+  public logout(): void {
+    this.authService.logout();
   }
 }

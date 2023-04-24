@@ -24,19 +24,13 @@
     width: auto;
     height: 24px;
     text-align: center;
-    font-family: Roboto, sans-serif;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #ffffff;
+    color: var(--light-color);
   }
 
   .title {
     margin-top: 16px !important;
-    font-family: Roboto, sans-serif;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 21px;
-    color: #354564;
+    color: var(--secondary-color);
   }
 }
