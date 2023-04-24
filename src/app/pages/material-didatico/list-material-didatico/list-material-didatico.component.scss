@@ -1,0 +1,29 @@
+.materiais {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: #eff2f9;
+  padding: 32px 64px;
+
+  > .card {
+    background: var(--light-color);
+    border-radius: 8px;
+    padding: 56px 16px 125px 72px;
+
+    > .title {
+      color: var(--secondary-color);
+    }
+
+    > .description {
+      color: var(--primary-color);
+    }
+
+    > .thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      column-gap: 32px;
+      row-gap: 28px;
+    }
+  }
+}

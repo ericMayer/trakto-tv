@@ -1,0 +1,11 @@
+<div class="design" (click)="openPresentation(design.id)">
+  <div class="image">
+    <img class="thumbnail" [src]="design?.thumbnail" [alt]="design?.title">
+
+    <div class="slides small-font" *ngIf="design?.slides">
+      {{ design?.slides }} Slide(s)
+    </div>
+  </div>
+
+  <p class="title subtitle-font">{{ design?.title }}</p>
+</div>
