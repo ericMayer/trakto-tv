@@ -8,6 +8,10 @@ Projeto foi desenvolvido com versão **15 do Angular e Material**, seguindo boas
 
 Para rodar o projeto **localmente** apenas é necessário rodar o comando `npm run start` no terminal já irá abrir o navegado com o projeto, caso queira também pode usar `ng serve` e abrir a url `http://localhost:4200/` no navegador.
 
+## Commits
+
+Para comitar no projeto está sendo seguido o padrão do [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#specification), por isso é necessário rodar o comando `npm run commit` e seguir o padrão do **Conventional Commits**, dúvidas sobre qual opção escolher na hora de commitar, por favor consultar a [documentação oficial](https://www.conventionalcommits.org/en/v1.0.0/#specification).
+
 ## Rodar projeto na rede
 
 Caso seja necessário realizar testes no projeto em um **dispositivo** é possível desde que ele esteja na mesma rede onde está rodando o projeto, somente é necessário rodar o comando `npm run host` para acessar pelo dispositivo utilizar a url `https://ip-do-seu-dispositivo-onde-esta-rodando-o-projeto:4200/#/evino/loja`, pode ser necessário desativar o firewall caso não esteja funcionando.
