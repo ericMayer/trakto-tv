@@ -1,10 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { canActivate } from '@core/guards/auth.guard';
+
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'menu',
+    loadChildren: () => import('./pages/menu/menu.module').then(m => m.MenuModule),
+    canActivate: [canActivate]
+  },
+  {
+    path: 'material-didatico',
+    loadChildren: () => import('./pages/material-didatico/material-didatico.module').then(m => m.MaterialDidaticoModule),
+    canActivate: [canActivate]
   },
   {
     path: '**',

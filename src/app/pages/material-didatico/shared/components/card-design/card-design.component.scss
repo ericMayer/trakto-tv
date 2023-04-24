@@ -1,0 +1,36 @@
+.design {
+  width: 310px;
+  cursor: pointer;
+
+  .image {
+    position: relative;
+    width: 310px;
+    height: 174px;
+  }
+
+  .thumbnail {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+
+  .slides {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 4px 8px;
+    background: rgba(12, 12, 12, 0.7);
+    border-radius: 500px;
+    width: auto;
+    height: 24px;
+    text-align: center;
+    font-weight: 400;
+    color: var(--light-color);
+  }
+
+  .title {
+    margin-top: 16px !important;
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+}

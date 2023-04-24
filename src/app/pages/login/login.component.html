@@ -1,0 +1,28 @@
+<main class="login">
+  <img class="logo" src="assets/images/trakto-logo.svg" alt="Logo da Trakto">
+
+  <h1 class="title">Olá, faça login em sua conta.</h1>
+
+  <form class="form" [formGroup]="formUserCredentials">
+
+    <div class="field">
+      <label for="email" class="label">E-mail</label>
+      <input type="email" id="email" autocomplete="email" class="input small-font" formControlName="email">
+    </div>
+
+    <div class="field">
+      <label for="senha" class="label">Senha</label>
+      <input type="password" id="senha" autocomplete="current-password" class="input password small-font"
+        formControlName="password">
+    </div>
+
+    <button type="submit" class="sign-in small-font" (click)="signIn()" [class.disabled]="addClassDisabled()">
+      <ng-container *ngIf="isLoading; else showSignIn">
+        <mat-spinner [diameter]="15"></mat-spinner> Entrando...
+      </ng-container>
+
+      <ng-template #showSignIn>Entrar</ng-template>
+    </button>
+  </form>
+
+</main>

@@ -1,0 +1,132 @@
+@import "../../../assets/scss/mixins";
+
+@mixin align-center() {
+  display: flex;
+  align-items: center;
+}
+
+.toolbar {
+  background: #252323;
+  width: 100%;
+  height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 65px 12px 65px;
+  font-family: var(--text-font);
+  gap: 8px;
+
+  .change-modulo {
+    display: flex;
+    gap: 56px;
+
+    > .image {
+      width: 143px;
+      height: 50px;
+    }
+
+    > .button-change-modulo {
+      @include flex-center();
+      gap: 10px;
+      border: 1px solid #7183a6;
+      padding: 16px 24px;
+      font: 500 20px/23px var(--text-font);
+      color: var(--primary-color);
+      background-color: transparent;
+      outline: transparent;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+
+  > .user-info {
+    @include align-center();
+    gap: 32px;
+
+    > .date {
+      @include align-center();
+      gap: 11px;
+      color: #e4ebfb;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    > .divider {
+      border-color: #e4ebfb;
+      opacity: 0.32;
+      width: 1px;
+      height: 24px;
+    }
+
+    > .avatar {
+      @include align-center();
+      gap: 8px;
+      cursor: pointer;
+    }
+  }
+
+  &.light-mode {
+    background: var(--light-color);
+
+    > .user-info {
+      > .date {
+        color: var(--primary-color);
+      }
+
+      > .divider {
+        border-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+.avatar-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-user {
+  display: grid;
+
+  .account-info {
+    @include align-center();
+    gap: 8px;
+    background: #333333;
+    color: var(--light-color);
+    height: 60px;
+  }
+
+  .account-icon,
+  .logout-icon,
+  .logout {
+    color: #e4ebfb;
+  }
+
+  .account-info,
+  .logout {
+    padding: 10px;
+  }
+
+  .logout {
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+::ng-deep .toolbar-profile-user + .cdk-overlay-connected-position-bounding-box {
+  .mat-mdc-menu-content {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .mdc-list-item__primary-text {
+    @include align-center();
+    gap: 8px;
+  }
+}
