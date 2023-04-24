@@ -7,16 +7,16 @@
 
     <div class="field">
       <label for="email" class="label">E-mail</label>
-      <input type="email" id="email" autocomplete="email" class="input" formControlName="email">
+      <input type="email" id="email" autocomplete="email" class="input small-font" formControlName="email">
     </div>
 
     <div class="field">
       <label for="senha" class="label">Senha</label>
-      <input type="password" id="senha" autocomplete="current-password" class="input password"
+      <input type="password" id="senha" autocomplete="current-password" class="input password small-font"
         formControlName="password">
     </div>
 
-    <button type="submit" class="sign-in" (click)="signIn()" [class.disabled]="addClassDisabled()">
+    <button type="submit" class="sign-in small-font" (click)="signIn()" [class.disabled]="addClassDisabled()">
       <ng-container *ngIf="isLoading; else showSignIn">
         <mat-spinner [diameter]="15"></mat-spinner> Entrando...
       </ng-container>

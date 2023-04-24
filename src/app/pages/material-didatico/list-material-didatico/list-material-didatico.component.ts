@@ -29,7 +29,7 @@ export class ListMaterialDidaticoComponent implements OnInit {
         next: (designs: MaterialDidatico[]) => this.designs = designs,
         error: () => {
           openSnackBarAlert(this.snackBar, {
-            message: 'Desculpe, aconteceu um erro em nossos serviços e não conseguimos exibir os resultados 😢. Tente recarregar a página ou tente novamente mais tarde.'
+            message: 'Desculpe, não foi possível carregar as informações 😢. Por favor tente novamente.'
           });
         }
       });

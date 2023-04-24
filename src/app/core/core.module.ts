@@ -1,24 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDividerModule } from '@angular/material/divider';
 
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { InterceptorModule } from './interceptor/interceptor.module';
-import { ImageNotFoundDirective } from './directives/image-not-found.directive';
+import { InterceptorModule } from '@core/interceptor/interceptor.module';
+import { ToolbarModule } from '@core/toolbar/toolbar.module';
+import { DirectivesModule } from '@core/directives/directives.module';
 
 @NgModule({
-  declarations: [
-    ToolbarComponent,
-    ImageNotFoundDirective
-  ],
   imports: [
     CommonModule,
-    MatDividerModule
   ],
   exports: [
     InterceptorModule,
-    ToolbarComponent,
-    ImageNotFoundDirective
+    ToolbarModule,
+    DirectivesModule
   ]
 })
 export class CoreModule { }

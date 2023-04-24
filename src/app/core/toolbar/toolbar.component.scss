@@ -1,3 +1,10 @@
+@import "../../../assets/scss/mixins";
+
+@mixin align-center() {
+  display: flex;
+  align-items: center;
+}
+
 .toolbar {
   background: #252323;
   width: 100%;
@@ -6,10 +13,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px 65px 12px 65px;
-  font-family: Roboto, sans-serif;
+  font-family: var(--text-font);
   gap: 8px;
 
-  .logout {
+  .change-modulo {
     display: flex;
     gap: 56px;
 
@@ -18,15 +25,13 @@
       height: 50px;
     }
 
-    > .change-modulo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    > .button-change-modulo {
+      @include flex-center();
       gap: 10px;
       border: 1px solid #7183a6;
       padding: 16px 24px;
-      font: 500 20px/23px "Roboto", sans-serif;
-      color: #7183a6;
+      font: 500 20px/23px var(--text-font);
+      color: var(--primary-color);
       background-color: transparent;
       outline: transparent;
       border-radius: 8px;
@@ -35,20 +40,13 @@
   }
 
   > .user-info {
-    display: flex;
-    align-items: center;
+    @include align-center();
     gap: 32px;
 
     > .date {
-      display: flex;
-      align-items: center;
+      @include align-center();
       gap: 11px;
       color: #e4ebfb;
-
-      > .current-date {
-        font-size: 18px;
-        line-height: 21px;
-      }
     }
 
     .icon {
@@ -64,29 +62,71 @@
     }
 
     > .avatar {
-      display: flex;
-      align-items: center;
+      @include align-center();
       gap: 8px;
-
-      > .avatar-photo {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-      }
+      cursor: pointer;
     }
   }
 
   &.light-mode {
-    background: #ffffff;
+    background: var(--light-color);
 
     > .user-info {
       > .date {
-        color: #7183a6;
+        color: var(--primary-color);
       }
 
       > .divider {
-        border-color: #7183a6;
+        border-color: var(--primary-color);
       }
     }
+  }
+}
+
+.avatar-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-user {
+  display: grid;
+
+  .account-info {
+    @include align-center();
+    gap: 8px;
+    background: #333333;
+    color: var(--light-color);
+    height: 60px;
+  }
+
+  .account-icon,
+  .logout-icon,
+  .logout {
+    color: #e4ebfb;
+  }
+
+  .account-info,
+  .logout {
+    padding: 10px;
+  }
+
+  .logout {
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+::ng-deep .toolbar-profile-user + .cdk-overlay-connected-position-bounding-box {
+  .mat-mdc-menu-content {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .mdc-list-item__primary-text {
+    @include align-center();
+    gap: 8px;
   }
 }

@@ -1,10 +1,21 @@
+<ng-template #avatar let-user="user">
+  <img class="avatar-photo" *ngIf="user?.avatar; else showIconAvatar" [src]="user?.avatar"
+    [alt]="'Imagem de ' + user?.name">
+
+  <ng-template #showIconAvatar>
+    <span class="material-symbols-outlined account-icon">
+      account_circle
+    </span>
+  </ng-template>
+</ng-template>
+
 <div class="toolbar" [class.light-mode]="!darkMode">
 
-  <div class="logout">
+  <div class="change-modulo">
     <img class="image" [src]="getImageToolbar('trakto-edu', true)" alt="Logo Trakto EDU">
 
-    <button class="change-modulo" *ngIf="!darkMode" (click)="goToMenu()">
-      <img src="assets/icons/logout.svg" alt="Ícone de sair">
+    <button class="button-change-modulo" *ngIf="!darkMode" (click)="goToMenu()">
+      <img src="assets/icons/change-modulo.svg" alt="Ícone de sair">
 
       Trocar de ambiente
     </button>
@@ -15,7 +26,7 @@
     <div class="date">
       <img class="icon" [src]="getImageToolbar('calendar')" alt="Ícone de calendário">
 
-      <p class="current-date">{{ currentDate | date : 'dd/MM/yyyy' }}</p>
+      <p class="subtitle-font">{{ currentDate | date : 'dd/MM/yyyy' }}</p>
     </div>
 
     <mat-divider class="divider" [vertical]="true"></mat-divider>
@@ -24,11 +35,31 @@
 
     <mat-divider class="divider" [vertical]="true"></mat-divider>
 
-    <div class="avatar">
-      <img class="avatar-photo" [src]="user?.avatar" [alt]="'Imagem de ' + user?.name">
+    <div class="avatar" [matMenuTriggerFor]="userMenu">
+      <ng-container *ngTemplateOutlet="avatar; context: { user: user }">
+      </ng-container>
 
       <img [src]="getImageToolbar('arrow')" alt="Ícone de seta para baixo">
     </div>
+
+    <mat-menu #userMenu="matMenu" [backdropClass]="'toolbar-profile-user'">
+      <div class="profile-user">
+        <div class="account-info">
+          <ng-container *ngTemplateOutlet="avatar; context: { user: user }">
+          </ng-container>
+
+          <p class="small-font">{{ user?.name }}</p>
+        </div>
+
+        <button class="logout" mat-menu-item mat-button (click)="logout()">
+          <span class="material-symbols-outlined logout-icon">
+            logout
+          </span>
+
+          Sair
+        </button>
+      </div>
+    </mat-menu>
 
   </div>
 </div>

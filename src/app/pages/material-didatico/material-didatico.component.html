@@ -1,4 +1,4 @@
-<div class="material-didatico">
+<div class="container-content">
   <app-toolbar [darkMode]="false"></app-toolbar>
 
 
@@ -26,7 +26,7 @@
         <div class="material-info">
 
           <div class="slide-buttons">
-            <div class="week">
+            <div class="week text-font">
               <ng-container *ngIf="(startDate | date: 'dd/MM') !== (endDate | date : 'dd/MM'), else sameDate">
                 Semana {{ startDate | date: 'dd/MM' }} até {{ endDate | date: 'dd/MM'}}
               </ng-container>
@@ -36,18 +36,18 @@
               </ng-template>
             </div>
 
-            <div class="buttons">
+            <div class="buttons" *ngIf="designs?.length > 1">
               <img class="prev-slide" src="assets/icons/prev.svg" alt="Slide anterior" (click)="prevSlide()">
               <img class="next-slide" src="assets/icons/next.svg" alt="Próximo slide" (click)="nextSlide()">
             </div>
           </div>
 
-          <button class="all-content" (click)="goListMaterialDidatico()">Ver todo conteúdo</button>
+          <button class="all-content text-font" (click)="goListMaterialDidatico()">Ver todo conteúdo</button>
         </div>
 
         <div class="text-information">
-          <h2 class="modulo">Material didático</h2>
-          <p class="description">Acesse suas últimas apresentações de aula.</p>
+          <h2 class="modulo title-font">Material didático</h2>
+          <p class="text-font">Acesse suas últimas apresentações de aula.</p>
         </div>
 
         <swiper-container class="swiper" slides-per-view="auto" space-between="32" #swiperContainer>
@@ -66,11 +66,11 @@
             <ng-lottie [options]="animationOptions"></ng-lottie>
           </div>
 
-          <p class="info">Você ainda não possui nenhuma material didático criado 😢!. Para criar um material
+          <p class="info text-font">Você ainda não possui nenhuma material didático criado 😢!. Para criar um material
             didático clique no botão
             abaixo.</p>
 
-          <button class="new-design" mat-raised-button (click)="openEditor()">
+          <button class="new-design text-font" mat-raised-button (click)="openEditor()">
             <span class="material-symbols-outlined">
               add
             </span>

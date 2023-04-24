@@ -1,27 +1,25 @@
 # TraktoTv
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+Projeto desenvolvimento para desafio **Front-end da Trakto**, mais informações acessar o link com a descrição do [desafio](https://github.com/trakto/desafio_frontend).
 
-## Development server
+Projeto foi desenvolvido com versão **15 do Angular e Material**, seguindo boas práticas do [Angular coding style guide](https://angular.io/guide/styleguide) e da comunidade, foi utilizado [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#specification) para os commits do projeto, também foi utilizado **programação reativa** [RXJS](https://rxjs.dev/).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Rodar o projeto local
 
-## Code scaffolding
+Para rodar o projeto **localmente** apenas é necessário rodar o comando `npm run start` no terminal já irá abrir o navegado com o projeto, caso queira também pode usar `ng serve` e abrir a url `http://localhost:4200/` no navegador.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Rodar projeto na rede
+
+Caso seja necessário realizar testes no projeto em um **dispositivo** é possível desde que ele esteja na mesma rede onde está rodando o projeto, somente é necessário rodar o comando `npm run host` para acessar pelo dispositivo utilizar a url `https://ip-do-seu-dispositivo-onde-esta-rodando-o-projeto:4200/#/evino/loja`, pode ser necessário desativar o firewall caso não esteja funcionando.
+
+## ng generate
+
+Execute no terminar `ng generate component nome-do-componente` para criar um novo componente. Você também pode utilizar `ng generate directive|pipe|service|class|guard|interface|enum|module`, maiores informações por favor consultar a documentação do [ng generate](https://angular.io/cli/generate).
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para buildar o projeto e gerar os arquivos de distribuição somente executar o comando `npm run build` no terminal, não existe distinção de ambientes, por questões da **API** não ter **ambientes diferentes**. Os arquivos gerados pelo build serão armazenados na pasta `dist/` na **raiz do projeto**.
 
-## Running unit tests
+## Para ajuda futura
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para futura ajuda e dúvidas, consultar a documentação do [Angular](https://angular.io/), [Material](https://material.angular.io/), [RXJS](https://rxjs.dev/), [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) e [Stack Overflow](https://stackoverflow.com/).
